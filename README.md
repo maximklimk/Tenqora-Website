@@ -1,6 +1,6 @@
-# RackOps product website
+# Tenqora product website
 
-Standalone static product and documentation site for RackOps.
+Standalone static product and documentation site for Tenqora.
 
 Author and product owner: **Максим Климко**.
 
@@ -14,4 +14,4 @@ Open `http://localhost:8080`.
 
 ## Deployment
 
-The site contains no secrets, application database or customer runtime data. It can be deployed directly to GitHub Pages, Cloudflare Pages, Netlify or any static host. The dedicated GitHub repository is generated from this `website/` subtree so the RackOps application source and runtime database remain separate.
+The site contains no secrets, application database or customer runtime data. It can be deployed directly to GitHub Pages, Cloudflare Pages, Netlify or any static host. The dedicated GitHub repository is generated from this `website/` subtree so the Tenqora application source and runtime database remain separate.
