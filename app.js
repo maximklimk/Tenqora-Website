@@ -45,7 +45,7 @@ const footer = `
     <div><b>Solutions</b><a href="solutions.html#data-centers">Data Centers</a><a href="solutions.html#enterprise">Enterprise IT</a><a href="solutions.html#colocation">Colocation</a><a href="solutions.html#edge">Edge Sites</a></div>
     <div><b>Platform</b><a href="platform.html">Architecture</a><a href="platform.html#integrations">Integrations</a><a href="platform.html#api">API & Webhooks</a><a href="platform.html#security">Security</a></div>
     <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="register.html">Contact</a></div>
-    <small>© <span id="year"></span> Максим Климко. Tenqora. <span><a href="resources.html#privacy">Privacy</a><a href="resources.html#security">Trust & Security</a></span></small>
+    <small><span>© <span id="year"></span> Tenqora · Built by Tenqora</span><span><a href="resources.html#privacy">Privacy</a><a href="resources.html#security">Trust & Security</a></span></small>
   </footer>
   <dialog class="search-dialog" id="searchDialog"><form method="dialog"><header><i class="ph ph-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Search Tenqora products and solutions" autocomplete="off"><button type="submit" aria-label="Close"><i class="ph ph-x"></i></button></header><div id="searchResults"></div></form></dialog>`;
 
