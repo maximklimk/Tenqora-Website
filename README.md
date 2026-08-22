@@ -31,6 +31,8 @@ Open `http://localhost:8080`.
 
 - Every public route declares its canonical `https://tenqora.net` URL, social preview metadata and the shared web manifest.
 - `robots.txt` points crawlers to `sitemap.xml`; the sitemap contains only public product and reviewed-registration destinations.
+- `seo.js` publishes matching `WebSite`, `Organization`, `WebPage` and `BreadcrumbList` JSON-LD plus visible page breadcrumbs. It never invents reviews, prices, addresses or external profiles.
+- The Search Console workflow submits the canonical sitemap only after a real verified Domain property and secret-bound service account are configured.
 - Mobile layouts are verified at 390 × 844 and 320 × 568. Navigation and form controls remain at least 44 px high, page-level horizontal overflow is prohibited and technical tables retain local scrolling.
 - The mobile drawer locks the page behind it, identifies the current destination and restores keyboard focus when closed.
 - The site contains no tenant data, credentials or application session state.
