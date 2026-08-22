@@ -132,10 +132,10 @@ document.querySelectorAll('.sparkline').forEach(canvas => {
 });
 
 const connectivityModes = {
-  direct:{label:'Direct optical',media:'OS2 · LC/UPC · 10GbE',summary:'One bidirectional optical Link between two compatible Ports.',middle:'Optical Link',remote:'MX204 · xe-0/1/2',branch:'MX204 · xe-0/1/5'},
-  splitter:{label:'Splitter 1×2',media:'OS2 · LC/UPC · 1310 nm',summary:'One validated source TX feeds two receiver branches through a passive 1×2 splitter.',middle:'Splitter 1×2',remote:'MX204 · xe-0/1/2',branch:'MX204 · xe-0/1/5'},
-  dac:{label:'DAC',media:'SFP+ passive copper · 10GbE',summary:'One captive two-ended cable assembly occupies both compatible SFP+ cages.',middle:'DAC · 2 m',remote:'USW-Pro · Port 25',branch:''},
-  copper:{label:'Copper',media:'Cat6A · RJ45 · 10GBASE-T',summary:'A copper route keeps cable category, connector and Patch Panel Ports explicit.',middle:'Patch Panel · 18',remote:'Server-0241 · NIC 1',branch:''}
+  direct:{label:'Direct optical',media:'OS2 · LC/UPC · 10GbE',summary:'One bidirectional Optical Link between two compatible Ports.',middle:'Optical Link',remote:'xe-0/1/2',branch:'xe-0/1/5',equipment:'MX204',role:'REMOTE PORT',portMedia:'SFP+ · 10GbE · Front',opticKind:'SFP+',remoteMedia:'Generic SFP-10G-LR',sourcePortMedia:'SFP+ · 10GbE · Front',sourceKind:'SFP+',sourceMedia:'Generic SFP-10G-LR'},
+  splitter:{label:'Splitter 1×2',media:'OS2 · LC/UPC · 1310 nm',summary:'One validated source TX feeds two receiver branches through a passive 1×2 Splitter.',middle:'Splitter 1×2',remote:'xe-0/1/2',branch:'xe-0/1/5',equipment:'MX204',role:'FIBER 1',portMedia:'SFP+ · 10GbE · Front',opticKind:'SFP+',remoteMedia:'Generic SFP-10G-LR',sourcePortMedia:'SFP+ · 10GbE · Front',sourceKind:'SFP+',sourceMedia:'Generic SFP-10G-LR'},
+  dac:{label:'DAC',media:'SFP+ passive copper · 10GbE',summary:'One captive two-ended cable assembly occupies both compatible SFP+ cages.',middle:'DAC · 2 m',remote:'Port 25',branch:'',equipment:'USW-Pro',role:'REMOTE PORT',portMedia:'SFP+ · 10GbE · Front',opticKind:'DAC',remoteMedia:'Passive copper assembly',sourcePortMedia:'SFP+ · 10GbE · Front',sourceKind:'DAC',sourceMedia:'Passive copper assembly'},
+  copper:{label:'Copper',media:'Cat6A · RJ45 · 10GBASE-T',summary:'A copper route keeps cable category, connector and Patch Panel Ports explicit.',middle:'Patch Panel · 18',remote:'NIC 1',branch:'',equipment:'Server-0241',role:'REMOTE PORT',portMedia:'RJ45 · 10GBASE-T · Rear',opticKind:'RJ45',remoteMedia:'Cat6A copper',sourcePortMedia:'RJ45 · 10GBASE-T · Front',sourceKind:'RJ45',sourceMedia:'Cat6A copper'}
 };
 function selectConnectivityMode(mode){
   const demo=document.querySelector('[data-connectivity-demo]'),data=connectivityModes[mode];
@@ -147,8 +147,18 @@ function selectConnectivityMode(mode){
   demo.querySelector('[data-demo-branch]').textContent=data.branch;
   demo.querySelector('[data-demo-media]').textContent=data.media;
   demo.querySelector('[data-demo-summary]').textContent=data.summary;
+  demo.querySelector('[data-demo-remote-equipment]').textContent=data.equipment;
+  demo.querySelector('[data-demo-remote-role]').textContent=data.role;
+  demo.querySelector('[data-demo-port-media]').textContent=data.portMedia;
+  demo.querySelector('[data-demo-optic-kind]').textContent=data.opticKind;
+  demo.querySelector('[data-demo-remote-media]').textContent=data.remoteMedia;
+  demo.querySelector('[data-demo-source-port-media]').textContent=data.sourcePortMedia;
+  demo.querySelector('[data-demo-source-kind]').textContent=data.sourceKind;
+  demo.querySelector('[data-demo-source-media]').textContent=data.sourceMedia;
+  demo.querySelector('.connection-canvas').setAttribute('aria-label',`${data.label} connection from AGG-01 Port 1 to ${data.equipment} ${data.remote}${mode==='splitter'?' and '+data.branch:''}`);
 }
 document.querySelector('[data-connectivity-demo]')?.addEventListener('click',event=>{const button=event.target.closest('[data-connectivity-mode]');if(button)selectConnectivityMode(button.dataset.connectivityMode)});
+document.querySelector('[data-connectivity-demo]')?.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;const tabs=[...event.currentTarget.querySelectorAll('[data-connectivity-mode]')],current=tabs.indexOf(document.activeElement);if(current<0)return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[next].focus();selectConnectivityMode(tabs[next].dataset.connectivityMode)});
 selectConnectivityMode('splitter');
 
 const monitoringViews={

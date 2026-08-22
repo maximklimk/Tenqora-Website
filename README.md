@@ -27,6 +27,8 @@ Open `http://localhost:8080`.
 
 `app.js` owns shared navigation, search, mobile behavior and the footer. Route files own their narrative only. Current Rack, Connectivity and Equipment screenshots in `assets/` are curated product evidence and are never operational data sources.
 
+The live Connectivity illustration keeps the same Port-card anatomy and physical vocabulary as the product: explicit endpoint terminals, one bounded intermediate component, medium-specific endpoint identity and numbered Splitter boundaries. It remains illustrative and never reads Client operational data.
+
 ## Publication contract
 
 - Every public route declares its canonical `https://tenqora.net` URL, social preview metadata and the shared web manifest.
