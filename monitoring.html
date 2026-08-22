@@ -1,6 +1,68 @@
-<!doctype html><html lang="en" data-page="monitoring"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Optional Tenqora monitoring for SNMP, Redfish, PDU telemetry, environmental sensors and port health."><meta name="author" content="Tenqora"><meta name="theme-color" content="#07111d"><link rel="canonical" href="https://tenqora.net/monitoring.html"><link rel="manifest" href="site.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Tenqora"><meta property="og:title" content="Monitoring — Tenqora"><meta property="og:url" content="https://tenqora.net/monitoring.html"><meta property="og:image" content="https://tenqora.net/assets/product-equipment.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/tenqora-mark.svg" type="image/svg+xml"><title>Monitoring — Tenqora</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"><link rel="stylesheet" href="styles.css?v=6"></head><body><a class="skip-link" href="#content">Skip to content</a><div id="siteHeader"></div><main id="content">
-<section class="page-hero"><div class="page-kicker"><i class="ph ph-chart-line-up"></i>Optional Monitoring</div><h1>Telemetry that respects the operational model.</h1><p>Add measured power, thermal, environmental and network health to the same equipment and Port records your teams already operate.</p><div class="button-row"><a class="button primary large" href="register.html">Book a demo</a><a class="button outline-light large" href="#sources">Explore sources</a></div></section>
-<section class="page-section"><p class="eyebrow">Measured state</p><h2>Read the signal without inventing certainty.</h2><p>Tenqora identifies source, timestamp and data quality. Missing observations stay missing; stale values never look current.</p><div class="feature-rows"><article><i class="ph ph-lightning"></i><h3>Power telemetry</h3><p>Feed, phase, bank and outlet values in W, kW, VA, kVA and amperes with truthful limits.</p></article><article><i class="ph ph-thermometer"></i><h3>Thermal context</h3><p>Rack-air sensors, equipment sensors, coverage quality, thresholds and time history.</p></article><article><i class="ph ph-ethernet"></i><h3>Port health</h3><p>Live interface state appears only when a configured collector returned a valid observation.</p></article></div></section>
-<section class="dark-band" id="sources"><div class="dark-band-inner"><div><p class="eyebrow">Collection paths</p><h2>Reach every network without exposing the origin.</h2><p>Use local collection, Tenqora Agent, approved VPN paths or vendor cloud access according to the network boundary.</p></div><div class="process"><article><span>01</span><h3>Profile</h3><p>Protocol, model identity and MIB mapping.</p></article><article><span>02</span><h3>Reach</h3><p>Local, Agent, VPN or vendor cloud path.</p></article><article><span>03</span><h3>Poll</h3><p>SNMP, Redfish, API and sensor collection.</p></article><article><span>04</span><h3>Validate</h3><p>Freshness, unit, bounds and source identity.</p></article><article><span>05</span><h3>Display</h3><p>Equipment, Rack, chart and alert context.</p></article></div></div></section>
-<section class="page-section"><p class="eyebrow">Operational charts</p><h2>Compact summaries that expand into full evidence.</h2><div class="feature-rows"><article><i class="ph ph-chart-line"></i><h3>Power</h3><p>Thin line charts with contracted reference levels, two-decimal values and explicit units.</p></article><article><i class="ph ph-wave-sine"></i><h3>Environment</h3><p>Temperature, humidity, Delta T and no-data areas that remain visually distinguishable.</p></article><article><i class="ph ph-bell-ringing"></i><h3>Alerts</h3><p>Threshold, missing source, stale poll and rate-of-change events without duplicate noise.</p></article></div></section>
-<section class="final-cta"><p class="eyebrow">Monitoring is optional</p><h2>Keep Tenqora useful even before the first collector is enabled.</h2><div class="button-row"><a class="button primary large" href="register.html">Start with Tenqora</a><a class="button outline-light large" href="platform.html#integrations">See integrations</a></div></section></main><div id="siteFooter"></div><script src="app.js?v=8"></script></body></html>
+<!doctype html>
+<html lang="en" data-page="monitoring">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Optional Tenqora infrastructure monitoring for SNMP, Redfish, PDU telemetry, environmental sensors, Port health and alerts.">
+  <meta name="author" content="Tenqora"><meta name="theme-color" content="#07111d">
+  <link rel="canonical" href="https://tenqora.net/monitoring.html"><link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="Tenqora"><meta property="og:title" content="Infrastructure Monitoring — Tenqora"><meta property="og:url" content="https://tenqora.net/monitoring.html"><meta property="og:image" content="https://tenqora.net/assets/product-equipment.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/tenqora-mark.svg" type="image/svg+xml"><title>Infrastructure Monitoring — Tenqora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"><link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body><a class="skip-link" href="#content">Skip to content</a><div id="siteHeader"></div><main id="content">
+  <section class="page-hero monitoring-hero">
+    <div class="page-kicker"><i class="ph ph-chart-line-up"></i>Optional Infrastructure Monitoring</div>
+    <h1>Live signals, attached to physical reality.</h1>
+    <p>Enable Monitoring per Client, then add measured network, power and environmental evidence to the exact Equipment, Port, PDU, Rack and Site your teams already operate.</p>
+    <div class="button-row"><a class="button primary large" href="register.html">Book a demo</a><a class="button outline-light large" href="#live-preview">See the live model</a></div>
+    <div class="monitoring-preview" id="live-preview" data-monitoring-preview>
+      <div class="preview-tabs" role="tablist" aria-label="Illustrative monitoring views">
+        <button class="active" type="button" role="tab" aria-selected="true" data-monitoring-view="network">Network</button>
+        <button type="button" role="tab" aria-selected="false" data-monitoring-view="power">Power</button>
+        <button type="button" role="tab" aria-selected="false" data-monitoring-view="thermal">Thermal</button>
+      </div>
+      <div class="monitoring-preview-body">
+        <div><small>ILLUSTRATIVE PRODUCT FLOW · NOT LIVE CUSTOMER DATA</small><h2 data-monitoring-title>Network Port health</h2><strong data-monitoring-value>18 / 24 observed</strong><p data-monitoring-detail>IF-MIB · 45 s ago</p></div>
+        <canvas aria-label="Illustrative selected monitoring trend" role="img"></canvas>
+      </div>
+      <footer><span><i class="ph ph-check-circle"></i>Measured</span><span><i class="ph ph-clock"></i>Timestamped</span><span><i class="ph ph-database"></i>Source identified</span></footer>
+    </div>
+  </section>
+
+  <section class="page-section"><p class="eyebrow">Monitoring contract</p><h2>Configured is not the same as observed.</h2><p>Tenqora separates setup, reachability, polling and evidence so a saved IP address or SNMP Profile never becomes a false green status.</p>
+    <div class="evidence-steps">
+      <article><span>01</span><i class="ph ph-sliders-horizontal"></i><h3>Configured</h3><p>Profile, Management IP and allowed collection path are saved.</p></article>
+      <article><span>02</span><i class="ph ph-path"></i><h3>Reachable</h3><p>Local, Agent, VPN or approved vendor-cloud route passes diagnostics.</p></article>
+      <article><span>03</span><i class="ph ph-rss"></i><h3>Polled</h3><p>A read-only protocol returns a real observation from the target.</p></article>
+      <article><span>04</span><i class="ph ph-seal-check"></i><h3>Trusted evidence</h3><p>Source, timestamp, unit, freshness and quality are retained together.</p></article>
+    </div>
+  </section>
+
+  <section class="dark-band" id="sources"><div class="dark-band-inner"><div><p class="eyebrow">Collection paths</p><h2>Reach private infrastructure without opening the origin.</h2><p>Choose the path that matches each Site boundary. Monitoring remains read-only unless a separately governed change workflow is introduced.</p></div><div class="source-matrix">
+    <article><i class="ph ph-device-mobile-camera"></i><h3>Tenqora Agent</h3><p>Outbound-only collection with tenant-scoped mTLS identity.</p><small>SNMP · sensors · future adapters</small></article>
+    <article><i class="ph ph-lock-key-open"></i><h3>VPN route</h3><p>WireGuard, OpenVPN or IPsec/IKEv2 as primary or backup access.</p><small>Private Management networks</small></article>
+    <article><i class="ph ph-cloud-check"></i><h3>Vendor cloud</h3><p>Read-only identity and observations where an official API supports them.</p><small>Never implies private SNMP reachability</small></article>
+    <article><i class="ph ph-plugs"></i><h3>Direct network</h3><p>Backend collection only inside an explicitly allowed routed boundary.</p><small>CIDR-scoped access</small></article>
+  </div></div></section>
+
+  <section class="page-section"><p class="eyebrow">Coverage</p><h2>One optional layer across active Equipment.</h2><p>Switches are only one case. Servers, routers, firewalls, managed PDU, environmental sensors and other active Equipment can use the same evidence rules when a compatible Profile and collector exist.</p>
+    <div class="feature-rows feature-rows-six">
+      <article><i class="ph ph-ethernet"></i><h3>Network</h3><p>Interface state, counters, errors, throughput, identity and supported VPN observations through read-only profiles.</p></article>
+      <article><i class="ph ph-lightning"></i><h3>Power</h3><p>Feed, phase, bank and outlet readings in W, kW, VA, kVA, A and V without allocating missing values.</p></article>
+      <article><i class="ph ph-thermometer"></i><h3>Environment</h3><p>Rack-air and internal Equipment sensors remain separate, with freshness and data-quality states.</p></article>
+      <article><i class="ph ph-hard-drives"></i><h3>Equipment health</h3><p>CPU, memory, fans, PSU, storage and vendor-reported health where the active profile exposes them.</p></article>
+      <article><i class="ph ph-bell-ringing"></i><h3>Alerts</h3><p>Threshold, stale source, missing poll and rate-of-change events with controlled deduplication.</p></article>
+      <article><i class="ph ph-clock-counter-clockwise"></i><h3>History</h3><p>Current evidence, operational trends and bounded history stay connected to the physical object.</p></article>
+    </div>
+  </section>
+
+  <section class="page-section tinted-wrap"><p class="eyebrow">Monitoring development</p><h2>A staged path from device evidence to service context.</h2><p>The roadmap is explicit: current capability is distinguished from planned work, and planned work is never marketed as live telemetry.</p>
+    <div class="roadmap-grid">
+      <article><span class="pill">Available now</span><h3>Physical infrastructure evidence</h3><ul><li>SNMP Profiles and MIB management</li><li>Agent, local, VPN and vendor-cloud paths</li><li>Port, PDU and environmental observations</li><li>Diagnostics, freshness and source identity</li></ul></article>
+      <article><span class="pill warning">Next</span><h3>Fleet discovery and correlation</h3><ul><li>Broader IP-range discovery</li><li>LLDP/FDB and interface relationship evidence</li><li>Saved topology and role-based monitoring views</li><li>Capacity and anomaly workflows</li></ul></article>
+      <article><span class="pill planned">Planned</span><h3>Service and software observability</h3><ul><li>Optional OpenTelemetry metrics, logs and traces</li><li>Service Map over physical and logical evidence</li><li>Explainable cross-domain incident context</li><li>Governed automation after explicit approval</li></ul></article>
+    </div>
+  </section>
+
+  <section class="final-cta"><p class="eyebrow">Monitoring is optional</p><h2>Keep Tenqora useful before the first collector—and more useful after every verified signal.</h2><div class="button-row"><a class="button primary large" href="register.html">Start with Tenqora</a><a class="button outline-light large" href="network-management.html">Explore Network Management</a></div></section>
+</main><div id="siteFooter"></div><script src="app.js?v=9"></script></body></html>

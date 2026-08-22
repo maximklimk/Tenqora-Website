@@ -3,13 +3,15 @@ const pages = [
   {title:'Asset Management',description:'Identity, inventory, lifecycle and governance.',url:'asset-management.html',group:'Product'},
   {title:'Connectivity',description:'Ports, cables, splitters, patching and routes.',url:'connectivity.html',group:'Product'},
   {title:'Monitoring',description:'Measured power, environment, port health and alerts.',url:'monitoring.html',group:'Product'},
+  {title:'Network Management',description:'Management IPs, secure reachability and device context.',url:'network-management.html',group:'Product'},
+  {title:'Telegram Manager',description:'Function-scoped operational messaging and delivery rules.',url:'telegram-manager.html',group:'Product'},
   {title:'Work Orders',description:'Plan, assign, execute and prove field work.',url:'work-orders.html',group:'Product'},
   {title:'Platform',description:'One data model, shared API, permissions and integrations.',url:'platform.html',group:'Platform'},
   {title:'Solutions',description:'Workflows for data centers, enterprise IT, edge and colocation.',url:'solutions.html',group:'Solutions'},
   {title:'Resources',description:'Product documentation, architecture and operational guidance.',url:'resources.html',group:'Resources'}
 ];
 
-const productIcon = title => title === 'DCIM' ? 'ph-circuitry' : title === 'Asset Management' ? 'ph-package' : title === 'Connectivity' ? 'ph-path' : title === 'Monitoring' ? 'ph-chart-line-up' : 'ph-check-square-offset';
+const productIcon = title => title === 'DCIM' ? 'ph-circuitry' : title === 'Asset Management' ? 'ph-package' : title === 'Connectivity' ? 'ph-path' : title === 'Monitoring' ? 'ph-chart-line-up' : title === 'Network Management' ? 'ph-network' : title === 'Telegram Manager' ? 'ph-telegram-logo' : 'ph-check-square-offset';
 const productLinks = pages.filter(page => page.group === 'Product').map(page => `
   <a href="${page.url}"><i class="ph ${productIcon(page.title)}"></i><span><b>${page.title}</b><small>${page.description}</small></span></a>`).join('');
 
@@ -41,7 +43,7 @@ const header = `
 const footer = `
   <footer class="site-footer">
     <div class="footer-brand"><a class="brand" href="index.html"><img src="assets/tenqora-mark.svg" alt=""><b>Tenqora</b></a><p>The operational system of record for physical infrastructure.</p></div>
-    <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="work-orders.html">Work Orders</a></div>
+    <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="network-management.html">Network Management</a><a href="telegram-manager.html">Telegram Manager</a><a href="work-orders.html">Work Orders</a></div>
     <div><b>Solutions</b><a href="solutions.html#data-centers">Data Centers</a><a href="solutions.html#enterprise">Enterprise IT</a><a href="solutions.html#colocation">Colocation</a><a href="solutions.html#edge">Edge Sites</a></div>
     <div><b>Platform</b><a href="platform.html">Architecture</a><a href="platform.html#integrations">Integrations</a><a href="platform.html#api">API & Webhooks</a><a href="platform.html#security">Security</a></div>
     <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="register.html">Contact</a></div>
@@ -128,6 +130,40 @@ document.querySelectorAll('.sparkline').forEach(canvas => {
   values.forEach((value,index) => { const x=index*(width/(values.length-1)); const y=height-8-((value-min)/range)*(height-18); index ? context.lineTo(x,y) : context.moveTo(x,y); });
   context.stroke();
 });
+
+const connectivityModes = {
+  direct:{label:'Direct optical',media:'OS2 · LC/UPC · 10GbE',summary:'One bidirectional optical Link between two compatible Ports.',middle:'Optical Link',remote:'MX204 · xe-0/1/2',branch:'MX204 · xe-0/1/5'},
+  splitter:{label:'Splitter 1×2',media:'OS2 · LC/UPC · 1310 nm',summary:'One validated source TX feeds two receiver branches through a passive 1×2 splitter.',middle:'Splitter 1×2',remote:'MX204 · xe-0/1/2',branch:'MX204 · xe-0/1/5'},
+  dac:{label:'DAC',media:'SFP+ passive copper · 10GbE',summary:'One captive two-ended cable assembly occupies both compatible SFP+ cages.',middle:'DAC · 2 m',remote:'USW-Pro · Port 25',branch:''},
+  copper:{label:'Copper',media:'Cat6A · RJ45 · 10GBASE-T',summary:'A copper route keeps cable category, connector and Patch Panel Ports explicit.',middle:'Patch Panel · 18',remote:'Server-0241 · NIC 1',branch:''}
+};
+function selectConnectivityMode(mode){
+  const demo=document.querySelector('[data-connectivity-demo]'),data=connectivityModes[mode];
+  if(!demo||!data)return;
+  demo.dataset.mode=mode;
+  demo.querySelectorAll('[data-connectivity-mode]').forEach(button=>{const selected=button.dataset.connectivityMode===mode;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));});
+  demo.querySelector('[data-demo-middle]').textContent=data.middle;
+  demo.querySelector('[data-demo-remote]').textContent=data.remote;
+  demo.querySelector('[data-demo-branch]').textContent=data.branch;
+  demo.querySelector('[data-demo-media]').textContent=data.media;
+  demo.querySelector('[data-demo-summary]').textContent=data.summary;
+}
+document.querySelector('[data-connectivity-demo]')?.addEventListener('click',event=>{const button=event.target.closest('[data-connectivity-mode]');if(button)selectConnectivityMode(button.dataset.connectivityMode)});
+selectConnectivityMode('splitter');
+
+const monitoringViews={
+  network:{title:'Network Port health',value:'18 / 24 observed',detail:'IF-MIB · 45 s ago',series:[18,20,19,22,21,24,23,26,25,28,26,30]},
+  power:{title:'PDU apparent power',value:'4.38 kVA',detail:'SNMP · Feed A · 32 s ago',series:[21,23,24,23,26,29,28,31,33,32,35,37]},
+  thermal:{title:'Rack inlet temperature',value:'23.2 °C',detail:'External sensor · 2 min ago',series:[22,22,23,22,23,24,23,24,24,23,24,23]}
+};
+function drawMonitoringPreview(view){
+  const panel=document.querySelector('[data-monitoring-preview]'),data=monitoringViews[view];if(!panel||!data)return;
+  panel.querySelectorAll('[data-monitoring-view]').forEach(button=>{const selected=button.dataset.monitoringView===view;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));});
+  panel.querySelector('[data-monitoring-title]').textContent=data.title;panel.querySelector('[data-monitoring-value]').textContent=data.value;panel.querySelector('[data-monitoring-detail]').textContent=data.detail;
+  const canvas=panel.querySelector('canvas'),ratio=window.devicePixelRatio||1,width=canvas.clientWidth||640,height=canvas.clientHeight||190;canvas.width=width*ratio;canvas.height=height*ratio;const context=canvas.getContext('2d');context.scale(ratio,ratio);context.clearRect(0,0,width,height);context.strokeStyle='#24384d';context.lineWidth=1;for(let row=1;row<5;row++){const y=row*height/5;context.beginPath();context.moveTo(0,y);context.lineTo(width,y);context.stroke()}const min=Math.min(...data.series),max=Math.max(...data.series),range=max-min||1;context.strokeStyle='#6fa8ff';context.lineWidth=2;context.beginPath();data.series.forEach((value,index)=>{const x=index*(width/(data.series.length-1)),y=height-18-((value-min)/range)*(height-44);index?context.lineTo(x,y):context.moveTo(x,y)});context.stroke();
+}
+document.querySelector('[data-monitoring-preview]')?.addEventListener('click',event=>{const button=event.target.closest('[data-monitoring-view]');if(button)drawMonitoringPreview(button.dataset.monitoringView)});
+drawMonitoringPreview('network');
 
 const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); }), {threshold:.08});
 document.querySelectorAll('.section,.proof-band,.final-cta').forEach(element => revealObserver.observe(element));
