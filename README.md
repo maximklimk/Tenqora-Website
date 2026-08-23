@@ -19,6 +19,7 @@ Open `http://localhost:8080`.
 - `/asset-management.html` — physical Asset identity, inventory and Lifecycle
 - `/connectivity.html` — Ports, cables, optics, splitters and patching
 - `/monitoring.html` — optional telemetry, environmental and Port-health context
+- `/operations-intelligence.html` — discovery, dependency, impact, capacity and controlled-action direction
 - `/work-orders.html` — planned and completed field work
 - `/platform.html` — shared model, API, integrations and security boundaries
 - `/solutions.html` — Data Center, enterprise, colocation, edge and network use cases

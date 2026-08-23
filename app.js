@@ -4,6 +4,7 @@ const pages = [
   {title:'Connectivity',description:'Ports, cables, splitters, patching and routes.',url:'connectivity.html',group:'Product'},
   {title:'Monitoring',description:'Measured power, environment, port health and alerts.',url:'monitoring.html',group:'Product'},
   {title:'Network Management',description:'Management IPs, secure reachability and device context.',url:'network-management.html',group:'Product'},
+  {title:'Operations Intelligence',description:'Discovery, dependencies, impact, capacity and controlled action.',url:'operations-intelligence.html',group:'Product'},
   {title:'Telegram Manager',description:'Function-scoped operational messaging and delivery rules.',url:'telegram-manager.html',group:'Product'},
   {title:'Work Orders',description:'Plan, assign, execute and prove field work.',url:'work-orders.html',group:'Product'},
   {title:'Platform',description:'One data model, shared API, permissions and integrations.',url:'platform.html',group:'Platform'},
@@ -11,7 +12,7 @@ const pages = [
   {title:'Resources',description:'Product documentation, architecture and operational guidance.',url:'resources.html',group:'Resources'}
 ];
 
-const productIcon = title => title === 'DCIM' ? 'ph-circuitry' : title === 'Asset Management' ? 'ph-package' : title === 'Connectivity' ? 'ph-path' : title === 'Monitoring' ? 'ph-chart-line-up' : title === 'Network Management' ? 'ph-network' : title === 'Telegram Manager' ? 'ph-telegram-logo' : 'ph-check-square-offset';
+const productIcon = title => title === 'DCIM' ? 'ph-circuitry' : title === 'Asset Management' ? 'ph-package' : title === 'Connectivity' ? 'ph-path' : title === 'Monitoring' ? 'ph-chart-line-up' : title === 'Network Management' ? 'ph-network' : title === 'Operations Intelligence' ? 'ph-brain' : title === 'Telegram Manager' ? 'ph-telegram-logo' : 'ph-check-square-offset';
 const productLinks = pages.filter(page => page.group === 'Product').map(page => `
   <a href="${page.url}"><i class="ph ${productIcon(page.title)}"></i><span><b>${page.title}</b><small>${page.description}</small></span></a>`).join('');
 
@@ -43,7 +44,7 @@ const header = `
 const footer = `
   <footer class="site-footer">
     <div class="footer-brand"><a class="brand" href="index.html"><img src="assets/tenqora-mark.svg" alt=""><b>Tenqora</b></a><p>The operational system of record for physical infrastructure.</p></div>
-    <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="network-management.html">Network Management</a><a href="telegram-manager.html">Telegram Manager</a><a href="work-orders.html">Work Orders</a></div>
+    <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="network-management.html">Network Management</a><a href="operations-intelligence.html">Operations Intelligence</a><a href="telegram-manager.html">Telegram Manager</a><a href="work-orders.html">Work Orders</a></div>
     <div><b>Solutions</b><a href="solutions.html#data-centers">Data Centers</a><a href="solutions.html#enterprise">Enterprise IT</a><a href="solutions.html#colocation">Colocation</a><a href="solutions.html#edge">Edge Sites</a></div>
     <div><b>Platform</b><a href="platform.html">Architecture</a><a href="platform.html#integrations">Integrations</a><a href="platform.html#api">API & Webhooks</a><a href="platform.html#security">Security</a></div>
     <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="register.html">Contact</a></div>
