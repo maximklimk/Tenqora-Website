@@ -49,3 +49,53 @@ html[data-page=home] body{background:var(--navy);color:#fff}html[data-page=home]
 @media(max-width:700px){.network-mini{grid-template-columns:1fr}.network-mini span{min-height:90px}.preview-tabs{overflow-x:auto}.preview-tabs button{min-width:max-content;min-height:44px}.monitoring-preview{margin-top:36px}.monitoring-preview-body{grid-template-columns:1fr;gap:18px;min-height:0;padding:22px}.monitoring-preview-body strong{font-size:32px}.monitoring-preview-body canvas{height:150px}.monitoring-preview footer{display:grid;gap:8px;padding:15px 22px}.evidence-steps,.source-matrix,.feature-rows-six,.roadmap-grid,.compatibility-grid,.access-path-grid,.operation-layers,.notification-grid{grid-template-columns:1fr}.evidence-steps article{min-height:0}.evidence-steps article::after{display:none!important}.connection-canvas{display:flex;flex-direction:column;gap:28px;min-height:0;padding:24px}.endpoint,.route-component{width:100%;min-height:112px}.route-line{width:1px;height:28px}.route-b,.route-c{transform:none}.connectivity-demo[data-mode=splitter] .route-c{display:block}.demo-explanation{grid-template-columns:24px 1fr}.demo-explanation span{grid-column:2}.network-command-grid{grid-template-columns:1fr}.telegram-console article{grid-template-columns:40px 1fr}.telegram-console em{grid-column:2}.notification-grid article{align-items:flex-start;flex-direction:column}.network-proof{grid-template-columns:1fr 1fr}.network-proof>div{background:#fff}.network-proof b{color:var(--ink)}}
 @media(max-width:700px){.intelligence-mini{grid-template-columns:1fr 18px 1fr 18px 1fr;min-height:120px;padding:12px}.intelligence-map{grid-template-columns:1fr;gap:10px;padding:16px}.intelligence-map>article{min-height:120px}.intelligence-map>i{transform:rotate(90deg);justify-self:center}.intelligence-map>i:nth-of-type(2){display:block}.intelligence-status-grid{grid-template-columns:1fr}.relationship-stack article{padding:18px}}
 @media(max-width:700px){.connection-canvas{display:grid;grid-template-columns:1fr 28px 1fr;grid-template-rows:auto 36px auto 36px auto;gap:0 12px;padding:24px 22px}.endpoint,.route-component{width:auto;min-height:126px}.endpoint.source{grid-column:1/4;grid-row:1}.route-a{grid-column:2;grid-row:2}.route-component{grid-column:1/4;grid-row:3;justify-self:stretch;width:auto}.route-b{grid-column:1;grid-row:4;justify-self:center}.route-c{grid-column:3;grid-row:4;justify-self:center}.endpoint.remote.primary{grid-column:1;grid-row:5}.endpoint.remote.branch{grid-column:3;grid-row:5}.route-line{width:1px;height:36px;transform:none}.source .endpoint-terminals{top:auto;right:50%;bottom:-9px;display:flex;transform:translateX(50%)}.remote .endpoint-terminals{top:-9px;left:50%;display:flex;transform:translateX(-50%)}.route-component .in{top:-9px;left:50%;transform:translateX(-50%)}.route-component .out-one{top:auto;right:auto;bottom:-9px;left:25%;transform:translateX(-50%)}.route-component .out-two{right:auto;bottom:-9px;left:75%;transform:translateX(-50%)}.route-component .path-in{top:-9px;left:50%;transform:translateX(-50%)}.route-component .path-out{top:auto;right:auto;bottom:-9px;left:50%;transform:translateX(-50%)}.connectivity-demo:not([data-mode=splitter]) .route-b{grid-column:2;grid-row:4}.connectivity-demo:not([data-mode=splitter]) .endpoint.remote.primary{grid-column:1/4}.demo-explanation{padding:15px 16px}}
+
+/* Figma reference: shared public header and the home command surface. */
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.site-header{height:80px;background:rgba(7,13,24,.96)}
+.top-nav{gap:34px}
+.top-nav>a{display:inline-flex;align-items:center;gap:5px}
+.top-nav>a i{font-size:9px;color:#788a9d}
+.header-actions .button{min-height:42px;padding-inline:18px}
+.mobile-panel{inset:80px 0 auto}
+
+html[data-page=home],html[data-page=home] body{overflow-x:clip}
+html[data-page=home] body{background:#07111d}
+html[data-page=home] .hero-reference{position:relative;isolation:isolate;display:block;min-height:1120px;padding:0;background:#07111d;color:#fff;overflow:hidden}
+html[data-page=home] .hero-reference-background{position:absolute;z-index:-3;inset:0 0 auto;height:780px;background:url("assets/hero-rack-background.png") center top/cover no-repeat}
+html[data-page=home] .hero-reference::before{position:absolute;z-index:-2;inset:0 0 auto;height:780px;background:linear-gradient(90deg,rgba(4,10,19,.38) 0,rgba(4,10,19,.14) 50%,rgba(4,10,19,.28) 100%),linear-gradient(180deg,rgba(5,11,21,.02) 42%,#07111d 100%);content:""}
+html[data-page=home] .hero-reference::after{position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 50% 51%,rgba(31,104,204,.12),transparent 38%);content:"";pointer-events:none}
+html[data-page=home] .hero-reference .hero-copy{width:min(1200px,calc(100% - 48px));margin:0 auto;padding-top:286px}
+html[data-page=home] .hero-reference .eyebrow{margin-bottom:17px;color:#76aaff;font-size:10px;font-weight:600;letter-spacing:.14em}
+html[data-page=home] .hero-reference h1{max-width:780px;font-size:clamp(52px,4.7vw,66px);font-weight:500;line-height:1.1;letter-spacing:-.04em}
+html[data-page=home] .hero-reference h1 span{display:block;color:#fff}
+html[data-page=home] .hero-reference .hero-lead{max-width:930px;margin:26px 0 0;color:#c1cad5;font-size:17px;line-height:1.55}
+html[data-page=home] .hero-reference .button-row{margin-top:31px}
+html[data-page=home] .hero-product-evidence{position:relative;z-index:2;width:min(800px,calc(100% - 48px));margin:148px auto 0;border:1px solid rgba(133,155,180,.22);border-radius:12px;background:#0b1724;box-shadow:0 38px 90px rgba(0,0,0,.54);overflow:hidden}
+html[data-page=home] .hero-product-evidence img{display:block;width:100%;height:auto}
+
+@media(max-width:1100px){
+  .site-header{height:72px}.mobile-panel{inset:72px 0 auto}
+  html[data-page=home] .hero-reference{min-height:1000px}
+  html[data-page=home] .hero-reference-background,html[data-page=home] .hero-reference::before{height:650px}
+  html[data-page=home] .hero-reference .hero-copy{padding-top:190px}
+  html[data-page=home] .hero-product-evidence{margin-top:120px}
+}
+@media(max-width:700px){
+  .site-header{height:64px}.mobile-panel{inset:64px 0 0}.brand img{width:29px;height:29px}
+  html[data-page=home] .hero-reference{min-height:0;padding-bottom:54px}
+  html[data-page=home] .hero-reference-background,html[data-page=home] .hero-reference::before{height:520px}
+  html[data-page=home] .hero-reference-background{background-position:52% top}
+  html[data-page=home] .hero-reference .hero-copy{width:calc(100% - 32px);padding-top:116px}
+  html[data-page=home] .hero-reference .eyebrow{max-width:280px;font-size:9px;line-height:1.55}
+  html[data-page=home] .hero-reference h1{max-width:100%;font-size:clamp(34px,9.8vw,40px);font-weight:500;line-height:1.08;overflow-wrap:anywhere}
+  html[data-page=home] .hero-reference .hero-lead{margin-top:21px;font-size:15px;line-height:1.55}
+  html[data-page=home] .hero-reference .button-row{grid-template-columns:1fr;margin-top:26px}
+  html[data-page=home] .hero-reference .button{min-height:48px}
+  html[data-page=home] .hero-product-evidence{width:calc(100% - 32px);margin-top:78px;border-radius:8px;box-shadow:0 24px 52px rgba(0,0,0,.46)}
+}
+@media(max-width:360px){
+  html[data-page=home] .hero-reference .hero-copy{padding-top:96px}
+  html[data-page=home] .hero-reference h1{font-size:33px}
+  html[data-page=home] .hero-product-evidence{margin-top:62px}
+}

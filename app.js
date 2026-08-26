@@ -33,15 +33,14 @@ const header = `
     <a class="brand" href="index.html" aria-label="Tenqora home"><img src="assets/tenqora-mark.svg" alt=""><b>Tenqora</b></a>
     <nav class="top-nav" aria-label="Primary navigation">
       <details class="mega-menu"><summary>Product <i class="ph ph-caret-down"></i></summary><div class="mega-panel"><div><span>Products</span>${productLinks}</div><aside><span>One operational model</span><h3>From Site to Port, Power and Task.</h3><p>Every Tenqora product works on the same physical inventory, identity and evidence.</p><a href="platform.html">Explore the platform <i class="ph ph-arrow-right"></i></a></aside></div></details>
-      <a href="solutions.html" ${current === 'solutions' ? 'aria-current="page"' : ''}>Solutions</a>
-      <a href="platform.html" ${current === 'platform' ? 'aria-current="page"' : ''}>Platform</a>
-      <a href="resources.html" ${current === 'resources' ? 'aria-current="page"' : ''}>Resources</a>
-      <a href="community.html" ${current === 'community' ? 'aria-current="page"' : ''}>Community</a>
+      <a href="solutions.html" ${current === 'solutions' ? 'aria-current="page"' : ''}>Solutions <i class="ph ph-caret-down"></i></a>
+      <a href="platform.html" ${current === 'platform' ? 'aria-current="page"' : ''}>Platform <i class="ph ph-caret-down"></i></a>
+      <a href="resources.html" ${current === 'resources' ? 'aria-current="page"' : ''}>Resources <i class="ph ph-caret-down"></i></a>
       <a href="register.html">Pricing</a>
     </nav>
-    <div class="header-actions"><button class="icon-button search-open" type="button" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button><a class="plain-link" href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="register.html">Book a demo</a><button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></div>
+    <div class="header-actions"><a class="plain-link" href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a><button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></div>
   </header>
-  <div class="mobile-panel" id="mobilePanel" hidden><button class="mobile-backdrop" type="button" aria-label="Close menu"></button><nav aria-label="Mobile navigation"><a href="index.html" ${current === 'home' ? 'aria-current="page"' : ''}>Home</a>${pages.map(page => `<a href="${page.url}" ${current === page.url.replace('.html','') || current === ({'asset-management':'assets','work-orders':'work-orders'}[page.url.replace('.html','')]) ? 'aria-current="page"' : ''}>${page.title}</a>`).join('')}<a href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="register.html">Book a demo</a></nav></div>`;
+  <div class="mobile-panel" id="mobilePanel" hidden><button class="mobile-backdrop" type="button" aria-label="Close menu"></button><nav aria-label="Mobile navigation"><a href="index.html" ${current === 'home' ? 'aria-current="page"' : ''}>Home</a>${pages.map(page => `<a href="${page.url}" ${current === page.url.replace('.html','') || current === ({'asset-management':'assets','work-orders':'work-orders'}[page.url.replace('.html','')]) ? 'aria-current="page"' : ''}>${page.title}</a>`).join('')}<a href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a></nav></div>`;
 
 const footer = `
   <footer class="site-footer">
