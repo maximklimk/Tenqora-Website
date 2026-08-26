@@ -24,6 +24,7 @@ Open `http://localhost:8080`.
 - `/platform.html` — shared model, API, integrations and security boundaries
 - `/solutions.html` — Data Center, enterprise, colocation, edge and network use cases
 - `/resources.html` — product documentation and Change Log entry points
+- `/community.html` — product feedback, Catalog evidence, integration proposals and release history
 - `/register.html` — review-only Client registration
 
 `app.js` owns shared navigation, search, mobile behavior and the footer. Route files own their narrative only. Current Rack, Connectivity and Equipment screenshots in `assets/` are curated product evidence and are never operational data sources.

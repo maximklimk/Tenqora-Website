@@ -9,7 +9,8 @@ const pages = [
   {title:'Work Orders',description:'Plan, assign, execute and prove field work.',url:'work-orders.html',group:'Product'},
   {title:'Platform',description:'One data model, shared API, permissions and integrations.',url:'platform.html',group:'Platform'},
   {title:'Solutions',description:'Workflows for data centers, enterprise IT, edge and colocation.',url:'solutions.html',group:'Solutions'},
-  {title:'Resources',description:'Product documentation, architecture and operational guidance.',url:'resources.html',group:'Resources'}
+  {title:'Resources',description:'Product documentation, architecture and operational guidance.',url:'resources.html',group:'Resources'},
+  {title:'Community',description:'Product feedback, Catalog evidence, integrations and release history.',url:'community.html',group:'Community'}
 ];
 
 const productIcon = title => title === 'DCIM' ? 'ph-circuitry' : title === 'Asset Management' ? 'ph-package' : title === 'Connectivity' ? 'ph-path' : title === 'Monitoring' ? 'ph-chart-line-up' : title === 'Network Management' ? 'ph-network' : title === 'Operations Intelligence' ? 'ph-brain' : title === 'Telegram Manager' ? 'ph-telegram-logo' : 'ph-check-square-offset';
@@ -35,6 +36,7 @@ const header = `
       <a href="solutions.html" ${current === 'solutions' ? 'aria-current="page"' : ''}>Solutions</a>
       <a href="platform.html" ${current === 'platform' ? 'aria-current="page"' : ''}>Platform</a>
       <a href="resources.html" ${current === 'resources' ? 'aria-current="page"' : ''}>Resources</a>
+      <a href="community.html" ${current === 'community' ? 'aria-current="page"' : ''}>Community</a>
       <a href="register.html">Pricing</a>
     </nav>
     <div class="header-actions"><button class="icon-button search-open" type="button" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button><a class="plain-link" href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="register.html">Book a demo</a><button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></div>
@@ -47,7 +49,7 @@ const footer = `
     <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="network-management.html">Network Management</a><a href="operations-intelligence.html">Operations Intelligence</a><a href="telegram-manager.html">Telegram Manager</a><a href="work-orders.html">Work Orders</a></div>
     <div><b>Solutions</b><a href="solutions.html#data-centers">Data Centers</a><a href="solutions.html#enterprise">Enterprise IT</a><a href="solutions.html#colocation">Colocation</a><a href="solutions.html#edge">Edge Sites</a></div>
     <div><b>Platform</b><a href="platform.html">Architecture</a><a href="platform.html#integrations">Integrations</a><a href="platform.html#api">API & Webhooks</a><a href="platform.html#security">Security</a></div>
-    <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="register.html">Contact</a></div>
+    <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="community.html">Community</a><a href="register.html">Contact</a></div>
     <small><span>© <span id="year"></span> Tenqora · Built by Tenqora</span><span><a href="resources.html#privacy">Privacy</a><a href="resources.html#security">Trust & Security</a></span></small>
   </footer>
   <dialog class="search-dialog" id="searchDialog"><form method="dialog"><header><i class="ph ph-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Search Tenqora products and solutions" autocomplete="off"><button type="submit" aria-label="Close"><i class="ph ph-x"></i></button></header><div id="searchResults"></div></form></dialog>`;
