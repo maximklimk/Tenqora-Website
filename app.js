@@ -30,7 +30,7 @@ function recordHomepageVisit(){
 recordHomepageVisit();
 const header = `
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Tenqora home"><img src="assets/tenqora-mark.svg" alt=""><b>Tenqora</b></a>
+    <a class="brand" href="index.html" aria-label="Tenqora home"><img src="assets/tenqora-mark.png" alt=""><b>Tenqora</b></a>
     <nav class="top-nav" aria-label="Primary navigation">
       <details class="mega-menu"><summary>Product <i class="ph ph-caret-down"></i></summary><div class="mega-panel"><div><span>Products</span>${productLinks}</div><aside><span>One operational model</span><h3>From Site to Port, Power and Task.</h3><p>Every Tenqora product works on the same physical inventory, identity and evidence.</p><a href="platform.html">Explore the platform <i class="ph ph-arrow-right"></i></a></aside></div></details>
       <a href="solutions.html" ${current === 'solutions' ? 'aria-current="page"' : ''}>Solutions <i class="ph ph-caret-down"></i></a>
@@ -44,7 +44,7 @@ const header = `
 
 const footer = `
   <footer class="site-footer">
-    <div class="footer-brand"><a class="brand" href="index.html"><img src="assets/tenqora-mark.svg" alt=""><b>Tenqora</b></a><p>The operational system of record for physical infrastructure.</p></div>
+    <div class="footer-brand"><a class="brand" href="index.html"><img src="assets/tenqora-mark.png" alt=""><b>Tenqora</b></a><p>Physical Infrastructure Operations Platform.</p></div>
     <div><b>Product</b><a href="dcim.html">DCIM</a><a href="asset-management.html">Asset Management</a><a href="connectivity.html">Connectivity</a><a href="monitoring.html">Monitoring</a><a href="network-management.html">Network Management</a><a href="operations-intelligence.html">Operations Intelligence</a><a href="telegram-manager.html">Telegram Manager</a><a href="work-orders.html">Work Orders</a></div>
     <div><b>Solutions</b><a href="solutions.html#data-centers">Data Centers</a><a href="solutions.html#enterprise">Enterprise IT</a><a href="solutions.html#colocation">Colocation</a><a href="solutions.html#edge">Edge Sites</a></div>
     <div><b>Platform</b><a href="platform.html">Architecture</a><a href="platform.html#integrations">Integrations</a><a href="platform.html#api">API & Webhooks</a><a href="platform.html#security">Security</a></div>

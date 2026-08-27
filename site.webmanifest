@@ -1,16 +1,16 @@
 {
   "name": "Tenqora",
   "short_name": "Tenqora",
-  "description": "Operations-first infrastructure management for Sites, Racks, Equipment, Connectivity, Power and field work.",
+  "description": "Physical Infrastructure Operations Platform for Sites, Racks, Equipment, Connectivity, Power and field work.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07111d",
   "theme_color": "#07111d",
   "icons": [
     {
-      "src": "/assets/tenqora-mark.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/assets/tenqora-mark.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     }
   ]

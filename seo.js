@@ -45,8 +45,8 @@
       url: `${origin}/`,
       logo: {
         '@type': 'ImageObject',
-        url: `${origin}/assets/tenqora-mark.svg`,
-        contentUrl: `${origin}/assets/tenqora-mark.svg`,
+        url: `${origin}/assets/tenqora-mark.png`,
+        contentUrl: `${origin}/assets/tenqora-mark.png`,
         width: 512,
         height: 512,
       },
