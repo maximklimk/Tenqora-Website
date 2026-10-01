@@ -99,3 +99,53 @@ html[data-page=home] .hero-product-evidence img{display:block;width:100%;height:
   html[data-page=home] .hero-reference h1{font-size:33px}
   html[data-page=home] .hero-product-evidence{margin-top:62px}
 }
+
+/* Shared responsive and motion contract, October 2026. */
+:root{--motion-enter:560ms;--motion-ease:cubic-bezier(.2,.7,.2,1)}
+main,section,article,figure,.capability-card{min-width:0}
+:where(a,button,input,summary):focus-visible{outline:3px solid var(--blue-light);outline-offset:4px}
+[id]{scroll-margin-top:96px}
+.release-list{display:grid;gap:0;margin-top:32px;border-top:1px solid var(--line-dark)}
+.release-list article{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--line-dark)}
+.release-list .release-state{color:var(--blue-light);font:12px "IBM Plex Mono",monospace}
+.release-list h3{margin:0 0 8px;font-size:24px;letter-spacing:-.025em}
+.release-list p{max-width:720px;margin:0 0 12px;color:#b1c0cf;font-size:16px}
+.release-list a{display:inline-flex;align-items:center;min-height:44px;color:var(--blue-light);font-weight:600}
+@keyframes section-enter{from{opacity:.45;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes hero-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+ .section.revealed,.page-section.revealed{animation:section-enter var(--motion-enter) var(--motion-ease) both}
+ .hero-copy{animation:hero-enter 650ms var(--motion-ease) both}
+ .hero-product-evidence{animation:hero-enter 800ms 120ms var(--motion-ease) both}
+}
+@media(max-width:1100px){
+ .site-header{grid-template-columns:1fr auto;gap:16px}
+ .header-actions{justify-self:end}
+ .capability-grid{grid-template-columns:minmax(0,1fr)}
+ .capability-grid .capability-card:nth-child(n){grid-column:auto}
+}
+@media(max-width:700px){
+ html{-webkit-text-size-adjust:100%}
+ .site-header{padding-inline:max(16px,env(safe-area-inset-left)) max(16px,env(safe-area-inset-right))}
+ .mobile-panel nav{max-height:calc(100dvh - 64px);padding-bottom:max(24px,env(safe-area-inset-bottom));overscroll-behavior:contain}
+ .mobile-panel .mobile-close{width:100%;min-height:44px;border:1px solid var(--line-dark);border-radius:7px;background:var(--navy-2);color:white;text-align:left;padding:12px}
+ .capability-card,.capability-card:nth-child(n){min-width:0;grid-column:auto}
+ .capability-card h2{min-height:0}
+ .capability-card>p,.principle-grid p{font-size:15px;line-height:1.65}
+ .text-link{min-height:44px;font-size:14px}
+ .route-graphic{grid-template-columns:minmax(0,1fr) 12px 70px 12px minmax(0,1fr);padding:10px}
+ .release-list article{grid-template-columns:1fr;gap:12px;padding-block:24px}
+ .release-list h3{font-size:24px}
+ .asset-relation-grid code{white-space:normal;overflow-wrap:anywhere}
+ .hero-product-evidence img{aspect-ratio:auto}
+ html[data-page=home] .hero-reference .hero-copy{padding-top:72px}
+ html[data-page=home] .hero-product-evidence{margin-top:48px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .capability-card:hover,.button:hover{transform:none}
+}
+
+#siteHeader{position:sticky;top:0;z-index:80}.site-header{position:relative}
+.recent-development>h2{max-width:780px;margin:0;font-size:clamp(30px,4vw,52px);line-height:1.15;letter-spacing:-.035em}

@@ -7,6 +7,8 @@
     '/asset-management.html': 'Asset Management',
     '/connectivity.html': 'Physical Connectivity',
     '/monitoring.html': 'Infrastructure Monitoring',
+    '/operations-intelligence.html': 'Operations Intelligence',
+    '/community.html': 'Tenqora Community',
     '/network-management.html': 'Network Management',
     '/telegram-manager.html': 'Telegram Manager',
     '/work-orders.html': 'Work Orders',
@@ -75,5 +77,5 @@
   structuredData.type = 'application/ld+json';
   structuredData.id = 'tenqoraStructuredData';
   structuredData.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
-  document.head.append(structuredData);
+  if (!document.getElementById('tenqoraStructuredData')) document.head.append(structuredData);
 })();

@@ -19,7 +19,7 @@ const productLinks = pages.filter(page => page.group === 'Product').map(page => 
 
 const current = document.documentElement.dataset.page || 'home';
 function recordHomepageVisit(){
-  if(current!=='home'||!['/','/index.html'].includes(location.pathname))return;
+  if(location.hostname!=='tenqora.net'||current!=='home'||!['/','/index.html'].includes(location.pathname))return;
   const storageKey='tenqora-home-visit';let existing='';
   try{existing=sessionStorage.getItem(storageKey)||''}catch{}
   const eventId=existing||globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -38,9 +38,9 @@ const header = `
       <a href="resources.html" ${current === 'resources' ? 'aria-current="page"' : ''}>Resources <i class="ph ph-caret-down"></i></a>
       <a href="register.html">Pricing</a>
     </nav>
-    <div class="header-actions"><a class="plain-link" href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a><button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></div>
+    <div class="header-actions"><a class="plain-link" href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a><button class="icon-button menu-toggle" type="button" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false"><i class="ph ph-list"></i></button></div>
   </header>
-  <div class="mobile-panel" id="mobilePanel" hidden><button class="mobile-backdrop" type="button" aria-label="Close menu"></button><nav aria-label="Mobile navigation"><a href="index.html" ${current === 'home' ? 'aria-current="page"' : ''}>Home</a>${pages.map(page => `<a href="${page.url}" ${current === page.url.replace('.html','') || current === ({'asset-management':'assets','work-orders':'work-orders'}[page.url.replace('.html','')]) ? 'aria-current="page"' : ''}>${page.title}</a>`).join('')}<a href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a></nav></div>`;
+  <div class="mobile-panel" id="mobilePanel" hidden><button class="mobile-backdrop" type="button" aria-label="Close menu"></button><nav aria-label="Mobile navigation"><button class="mobile-close" type="button">Close menu</button><a href="index.html" ${current === 'home' ? 'aria-current="page"' : ''}>Home</a>${pages.map(page => `<a href="${page.url}" ${current === page.url.replace('.html','') || current === ({'asset-management':'assets','work-orders':'work-orders'}[page.url.replace('.html','')]) ? 'aria-current="page"' : ''}>${page.title}</a>`).join('')}<a href="https://app.tenqora.net/login">Sign in</a><a class="button primary" href="platform.html">Explore the platform</a></nav></div>`;
 
 const footer = `
   <footer class="site-footer">
@@ -51,7 +51,7 @@ const footer = `
     <div><b>Resources</b><a href="resources.html">Documentation</a><a href="resources.html#guides">Guides</a><a href="resources.html#change-log">Change Log</a><a href="community.html">Community</a><a href="register.html">Contact</a></div>
     <small><span>© <span id="year"></span> Tenqora · Built by Tenqora</span><span><a href="resources.html#privacy">Privacy</a><a href="resources.html#security">Trust & Security</a></span></small>
   </footer>
-  <dialog class="search-dialog" id="searchDialog"><form method="dialog"><header><i class="ph ph-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Search Tenqora products and solutions" autocomplete="off"><button type="submit" aria-label="Close"><i class="ph ph-x"></i></button></header><div id="searchResults"></div></form></dialog>`;
+  <dialog class="search-dialog" id="searchDialog"><form method="dialog"><header><i class="ph ph-magnifying-glass"></i><input id="searchInput" type="search" aria-label="Search Tenqora products and solutions" placeholder="Search Tenqora products and solutions" autocomplete="off"><button type="submit" aria-label="Close"><i class="ph ph-x"></i></button></header><div id="searchResults"></div></form></dialog>`;
 
 document.querySelector('#siteHeader')?.insertAdjacentHTML('beforeend', header);
 document.querySelector('#siteFooter')?.insertAdjacentHTML('beforeend', footer);
@@ -65,11 +65,14 @@ function setMobileMenu(open) {
   menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   mobilePanel.hidden = !open;
   document.body.classList.toggle('mobile-menu-open', open);
+  document.querySelector('main')?.toggleAttribute('inert', open);
+  document.querySelector('#siteFooter')?.toggleAttribute('inert', open);
   menuToggle.querySelector('i').className = `ph ${open ? 'ph-x' : 'ph-list'}`;
   if (open) mobilePanel.querySelector('nav a')?.focus();
   else menuToggle.focus();
 }
 menuToggle?.addEventListener('click', () => setMobileMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+mobilePanel?.querySelector('.mobile-close')?.addEventListener('click', () => setMobileMenu(false));
 mobilePanel?.querySelector('.mobile-backdrop')?.addEventListener('click', () => setMobileMenu(false));
 mobilePanel?.querySelector('nav')?.addEventListener('click', event => {
   if (event.target.closest('a')) setMobileMenu(false);
@@ -177,5 +180,5 @@ function drawMonitoringPreview(view){
 document.querySelector('[data-monitoring-preview]')?.addEventListener('click',event=>{const button=event.target.closest('[data-monitoring-view]');if(button)drawMonitoringPreview(button.dataset.monitoringView)});
 drawMonitoringPreview('network');
 
-const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); }), {threshold:.08});
-document.querySelectorAll('.section,.proof-band,.final-cta').forEach(element => revealObserver.observe(element));
+const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); revealObserver.unobserve(entry.target); }), {threshold:.08});
+document.querySelectorAll('.section,.page-section,.proof-band,.final-cta').forEach(element => revealObserver.observe(element));
