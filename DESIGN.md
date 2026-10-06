@@ -3,13 +3,18 @@
 Audience: infrastructure and data-center teams evaluating the product.
 The public site explains inventory, connectivity and accountable field work.
 
-## Existing visual language
-Preserve the rack photography and actual product screenshots, navy surfaces,
-blue actions, DM Sans headings/body and IBM Plex Mono utility labels.
-The hero remains the visual signature. Do not substitute generated dashboards.
+## Light Operations visual language
+A new light direction replaces the dark hero and oversized titles. Mineral
+neutrals, petroleum actions, fine borders and medium-weight DM Sans follow
+the shared application palette. IBM Plex Mono is reserved for utility labels.
+The home introduction pairs a concise operational proposition with the existing
+product evidence image. Keep real product screenshots; do not invent dashboards.
 
 ## Canonical implementation
-`styles.css` owns shared tokens in `:root`, spacing, layout and responsive behavior.
+`packages/design-tokens/tokens.json` owns the shared palette;
+`scripts/design-tokens.js` generates `design-tokens.css`. `styles.css` owns
+existing domain illustration geometry. `light-operations.css` is the final
+presentation owner for site navigation, introduction, sections and forms.
 `app.js` owns the header, mobile navigation, footer and shared interactions.
 Route HTML owns content and static metadata. `seo.js` supplies breadcrumbs and
 only generates JSON-LD when static data is absent.
